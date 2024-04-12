@@ -20,33 +20,83 @@
   </head>
   <body>
 
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="{% url 'base:home' %}">Curso de Django</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+  	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  		<div class="container-fluid">
+    		<a class="navbar-brand" href="{% url 'base:home' %}">Curso de Django</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			  <span class="navbar-toggler-icon"></span>
+			</button>
+    		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-      </ul>
-    </div>
-  </div>
-</nav>
+			  </ul>
+    		</div>
+  		</div>
+ 	</nav>
 
-    <div class="container">
-	<div class="row">
-		<div class="col-md-12">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="jumbotron">
+					<h2>
+						Curso de Dajngo com Luciano Ramalho
+					</h2>
 
-			<div class="jumbotron">
-				<h2>
-					Curso de Dajngo com Luciano Ramalho
-				</h2>
-				<p>
-					Confira em breve mais informações sobre o curso que será ministrado pelo autor do livro
-					<a href="https://pythonfluente.com/" target="_blank">Python Fluente</a>.
-				</p>
+					<h4 class="mt-4">Matrículas abertas! Custo R$ 1000,00</h4>
+                    <!-- INICIO FORMULARIO BOTAO PAGSEGURO -->
+                    <form action="https://pagseguro.uol.com.br/checkout/v2/payment.html" method="post"
+					  		onsubmit="PagSeguroLightbox(this); return false;">
+						<!-- NÃO EDITE OS COMANDOS DAS LINHAS ABAIXO -->
+                        <input type="hidden" name="code" value="7A04378D0101CC1224B6DF84017C792B"/>
+                        <input type="hidden" name="iot" value="button"/>
+                        <input type="image"
+                               src="https://stc.pagseguro.uol.com.br/public/img/botoes/pagamentos/120x53-comprar.gif"
+                               name="submit" alt="Pague com PagSeguro - é rápido, grátis e seguro!"/>
+                    </form>
+                    <script type="text/javascript"
+                            src="https://stc.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.lightbox.js"></script>
+                    <!-- FINAL FORMULARIO BOTAO PAGSEGURO -->
+
+<!--				<h4 class="mt-4">Ente na fila de espera</h4>
+					<form action="https://herokuapp.us18.list-manage.com/subscribe/post?u=b36eefacf5ddc64b2edb2a6f0&amp;id=446733f115&amp;f_id=00fe7fe1f0"
+					   	method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form"
+					   	class="form-row align-items-center" target="_blank" novalidate="">
+					   	<div class="form-row align-items-center">
+					   		<div class="input-group mb-2 col-auto">
+						  		<label class="sr-only" for="mce-EMAIL">Email</label>
+						  		<div class="input-group mb-2">
+							 		<div class="input-group-prepend">
+
+							 		</div>
+							 		<input type="email" name="EMAIL" class="form-control mb-2" id="mce-EMAIL" placeholder="exemplo@email.com" required="" value="">
+						  		</div>
+					   		</div>
+
+					   		<div class="input-group mb-2 col-auto">
+						  		<label class="sr-only" for="mce-FNAME">Nome</label>
+						  		<div class="input-group mb-2">
+						 			<div class="input-group-prepend">
+
+							 		</div>
+							 		<input type="text" name="FNAME" class="form-control" id="mce-FNAME" placeholder="Seu Nome">
+						  		</div>
+					   		</div>
+
+				   			<div aria-hidden="true" style="position: absolute; left: -5000px;">
+						  		&lt;!&ndash; real people should not fill this in and expect good things - do not remove this or risk form bot signups &ndash;&gt;
+						  		<input type="text" name="b_b36eefacf5ddc64b2edb2a6f0_446733f115" tabindex="-1" value="">
+					   		</div>
+
+					   		<div class="col-auto">
+						  		<input type="submit" name="subscribe" id="mc-embedded-subscribe" class="btn btn-primary mb-2" value="Salvar">
+					   		</div>
+					   	</div>
+					</form>-->
+				</div>
 			</div>
+		</div>
+
+		<div>
 			<div class="row">
 				<div class="col-md-12">
 					<div class="card">
@@ -56,7 +106,7 @@
 						<div class="card-body">
 							<p class="card-text">
 								<img src="{% static 'img/luciano-ramalho.png' %}" class="rounded float-start m-2"
-							 	alt="Foto de Luciano Ramalho">
+								alt="Foto de Luciano Ramalho">
 								Ramalho é sócio e professor na <a href="https://www.python.pro.br">Python Pro</a>
 								e autor do Livro <a href="http://shop.oreilly.com/product/0636920032519.do"
 								target="_blank">Python Fluente</a>. Foi diretor técnico do Brasil Online, primeiro
@@ -73,32 +123,31 @@
 			</div>
 		</div>
 	</div>
-</div>
 
-<footer class="main-footer mt-5 pt-4 text-light">
-	<div class="container">
-		<div class="row">
-			<div class="col">
-				<h3>Entre em contato</h3>
-				<address>
-					+55 12 997-411-854
-					<br/>
-					<a href="mailto:ramalho@python.pro.br" class="text-light">ramalho@python.pro.br</a>
-				</address>
-			</div>
-		</div>
-	</div>
-
-	<div class="rights pb-4">
+	<footer class="main-footer mt-5 pt-4 text-light">
 		<div class="container">
 			<div class="row">
 				<div class="col">
-					{% now 'Y' %} Python Pro. Todos direitos reservados.
+					<h3>Entre em contato</h3>
+					<address>
+						+55 12 997-411-854
+						<br/>
+						<a href="mailto:ramalho@python.pro.br" class="text-light">ramalho@python.pro.br</a>
+					</address>
 				</div>
 			</div>
 		</div>
-	</div>
-</footer>
+
+		<div class="rights pb-4">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						{% now 'Y' %} Python Pro. Todos direitos reservados.
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
 
   </body>
 </html>
