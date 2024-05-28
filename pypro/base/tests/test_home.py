@@ -15,8 +15,12 @@ def test_status_code(resp):
 
 
 def test_title(resp):
-    assert_contains(resp, '<title>Curso de Django</title>')
+    assert_contains(resp, '<title>Curso de Django - Home</title>')
 
 
 def test_home_link(resp):
     assert_contains(resp, f'href="{reverse("base:home")}">Curso de Django</a>')
+
+
+def test_email_link(resp):
+    assert_contains(resp, 'href="mailto:ramalho@python.pro.br"')
