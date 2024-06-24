@@ -1,15 +1,13 @@
 from django.db import models
-# from django.urls import reverse
+from django.urls import reverse
 from ordered_model.models import OrderedModel
-from django.utils.translation import gettext_lazy as _
 
 
 class Modulo(OrderedModel):
     titulo = models.CharField(max_length=64)
-    publico = models.TextField(null=True)
-    descricao = models.TextField(null=True)
-    order = models.PositiveIntegerField(_("order"), editable=False, db_index=True, null=True)
-    # slug = models.SlugField(unique=True)
+    publico = models.TextField()
+    descricao = models.TextField()
+    slug = models.SlugField(unique=True)
 
     class Meta(OrderedModel.Meta):
         pass
@@ -17,5 +15,5 @@ class Modulo(OrderedModel):
     def __str__(self):
         return self.titulo
 
-    # def get_absolute_url(self):
-    #     return reverse('modulos:detalhe', kwargs={'slug': self.slug})
+    def get_absolute_url(self):
+        return reverse('modulos:detalhe', kwargs={'slug': self.slug})
