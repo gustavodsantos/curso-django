@@ -1,8 +1,9 @@
 import pytest
 from django.urls import reverse
+from model_mommy import mommy
+
 from pypro.aperitivos.models import Video
 from pypro.django_assertions import assert_contains
-from model_mommy import mommy
 
 
 @pytest.fixture
