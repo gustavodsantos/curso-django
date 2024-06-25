@@ -5,8 +5,8 @@ from ordered_model.models import OrderedModel
 
 class Modulo(OrderedModel):
     titulo = models.CharField(max_length=64)
-    publico = models.TextField()
-    descricao = models.TextField()
+    publico = models.TextField(null=True)
+    descricao = models.TextField(null=True)
     slug = models.SlugField(unique=True)
 
     class Meta(OrderedModel.Meta):
