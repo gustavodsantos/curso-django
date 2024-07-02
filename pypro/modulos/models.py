@@ -17,4 +17,7 @@ class Modulo(OrderedModel):
 
     def get_absolute_url(self):
         return reverse('modulos:detalhe', kwargs={'slug': self.slug})
+<<<<<<< teste
 
+=======
+>>>>>>> main
