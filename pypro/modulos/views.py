@@ -1,3 +1,9 @@
+<<<<<<< teste
+from django.shortcuts import render
+
+def detalhe(request, slug):
+    pass
+=======
 # from django.contrib.auth.decorators import login_required
 # from django.shortcuts import render
 #
@@ -20,3 +26,4 @@ def detalhe(request, slug):
 # def aula(request, slug):
 #     aula = facade.encontrar_aula(slug)
 #     return render(request, 'modulos/aula_detalhe.html', {'aula': aula})
+>>>>>>> main
