@@ -4,7 +4,7 @@ on:
   pull_request:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   build:
@@ -17,9 +17,9 @@ jobs:
       postgres:
         image: postgres:16.3
         env:
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
-          POSTGRES_DB: postgres
+          POSTGRES_USER: pythonpro
+          POSTGRES_PASSWORD: pythonpro
+          POSTGRES_DB: cursodjango
         ports: [ '5432:5432' ]
 
     steps:
@@ -28,10 +28,6 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: '3.11'
-
-      - name: Copying configurations
-        run: |
-          cp contrib/env-sample .env
 
       - name: Install dependencies
         run: |
@@ -42,12 +38,12 @@ jobs:
         run: |
           pipenv run flake8 .
 
+      - name: Copying configurations
+        run: |
+          cp contrib/env-sample .env          
+
       - name: Test with pytest
         run: |
           pipenv run pytest --cov=pypro
 
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v3
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-          slug: gustavodsantos/curso-django
+

@@ -1,4 +1,4 @@
-version: "4.31.1"
+version: "4.33.0"
 
 services:
   database:
@@ -14,4 +14,4 @@ services:
       - POSTGRES_USER=pythonpro
       - POSTGRES_DB=cursodjango
     ports:
-      - 5434:5432
+      - 5432:5432
