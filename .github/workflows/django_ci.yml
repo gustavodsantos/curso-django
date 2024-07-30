@@ -44,6 +44,4 @@ jobs:
 
       - name: Test with pytest
         run: |
-          pipenv run pytest --cov=pypro
-
-
+          pipenv run pytest --cache-clear
