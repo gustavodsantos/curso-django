@@ -1,16 +1,12 @@
-name: Python application
+name: Django CI
 
 on:
   pull_request:
   push:
     branches:
       - main
-
 jobs:
   build:
-    env:
-      PIPENV_NO_INHERIT: 1
-      PIPENV_IGNORE_VIRTUALENVS: 1
     runs-on: ubuntu-latest
 
     services:
@@ -23,25 +19,26 @@ jobs:
         ports: [ '5432:5432' ]
 
     steps:
-      - uses: actions/checkout@v2
-      - name: Set up Python 3.11
-        uses: actions/setup-python@v4
+      - uses: actions/checkout@v3
         with:
-          python-version: '3.11'
+          fetch-depth: 1
 
-      - name: Install dependencies
-        run: |
-          pip install pipenv
-          pipenv sync --dev
+      - name: Setup Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: "3.12"
 
-      - name: Lint with flake8
+      - name: Install dependencies (using poetry)
         run: |
-          pipenv run flake8 .
+          python -m pip install --upgrade pip
+          python -m pip install poetry
+          poetry install --with dev --sync
 
-      - name: Copying configurations
-        run: |
-          cp contrib/env-sample .env          
+      - name: Lint
+        run: poetry run task lint
 
-      - name: Test with pytest
-        run: |
-          pipenv run pytest --cache-clear
+      - name: Copy instance config variables
+        run: cp contrib/env-sample .env
+
+      - name: Run testes do Django com cobertura
+        run: poetry run pytest pypro --cov=pypro --cov-fail-under=20

@@ -12,10 +12,11 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 import os.path
 from functools import partial
+
 # from pathlib import Path
 import dj_database_url
-from decouple import config, Csv
 import sentry_sdk
+from decouple import Csv, config
 from sentry_sdk.integrations.django import DjangoIntegration
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
